@@ -34,3 +34,11 @@ class Node:
         print(self.data)
         if self.right is not None:
             self.right.print_in_order()
+
+
+def check_bst(root, min, max):
+    if root is None:
+        return True
+    if root.data < min or root.data > max:
+        return False
+    return check_bst(root.left, min, root.data - 1) and check_bst(root.right, root.data + 1, max)
